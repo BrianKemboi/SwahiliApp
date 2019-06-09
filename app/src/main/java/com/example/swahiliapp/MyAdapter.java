@@ -7,19 +7,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
-    private String[] dataSet;
+    private String[] dataSet = new String[]{};
 
-    public String[] getDataSet() {
-        return dataSet;
-    }
-
-    public void setDataSet(String[] dataSet) {
+    void setDataSet(String[] dataSet) {
         this.dataSet = dataSet;
     }
-
-
-
-
 
     @NonNull
     @Override

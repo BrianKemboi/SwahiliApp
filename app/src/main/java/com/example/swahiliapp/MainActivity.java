@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     private Button btn_translate;
+    private Button btn_exit;
     private EditText editText;
 
     @Override
@@ -37,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         btn_translate = findViewById(R.id.btn_translate);
+        btn_exit = findViewById(R.id.btn_exit);
         editText = findViewById(R.id.editText);
 
         mAdapter = new MyAdapter();
-        mAdapter.setDataSet(new String[]{""});
         recyclerView.setAdapter(mAdapter);
 
 
@@ -54,13 +55,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        btn_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
     String[] translations(String word){
         ArrayList<String> swa_words = new ArrayList<>();
-
         try (
                 BufferedReader br = new BufferedReader(
                         new InputStreamReader(getAssets().open("data.csv")))){
