@@ -27,14 +27,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         TextView textView = (TextView)
                 LayoutInflater.from(viewGroup.getContext())
                         .inflate(R.layout.words,viewGroup,false);
-        MyViewHolder viewHolder = new MyViewHolder(textView);
-        return viewHolder;
+        return new MyViewHolder(textView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        myViewHolder.textView.setText(dataSet[i]);
-
+        if (!dataSet[i].isEmpty()){
+        myViewHolder.textView.setText((i+1)+". "+dataSet[i]);}
     }
 
     @Override
@@ -42,9 +41,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         return dataSet.length;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
-        public MyViewHolder(@NonNull TextView textView) {
+        MyViewHolder(@NonNull TextView textView) {
             super(textView);
             this.textView = textView;
         }

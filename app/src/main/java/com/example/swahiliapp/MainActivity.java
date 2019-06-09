@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+            //ArrayList to String array conversion
             String[] arr = new String[swa_words.size()];
             for (int i = 0; i < swa_words.size(); i++) {
                 // Assign each value to String array
